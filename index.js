@@ -16,5 +16,5 @@ app.use(express.urlencoded({extended:true}))
 app.use(router)
 
 //listening the server 
-const port = process.env.PORT || 1111
+const port = process.env.PORT || 10000
 app.listen(port)
