@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>URL SHORTENER</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+</head>
+
+<body>
+    <main class="h-screen w-full bg-slate-200 flex items-center justify-center flex-col">
+        <form action="/" method="get">
+            <input type="text" name="text" placeholder="paste your url"
+            class="border-1 border-black pl-3"
+            required>
+            <button type="submit" class="h-[40px] w-[120px] bg-blue-500 m-3 text-white">Generate</button>
+        </form>
+        <div class="short flex items-center justify-between">
+            <p>
+                <%= short %>
+            </p>
+            <button onclick="copytoclipboard()" class="h-[40px] w-[120px] bg-gray-300  m-3">COPY</button>
+        </div>
+    </main>
+
+    <script>
+        function copytoclipboard(){
+        const data=document.querySelector(".short p").innerHTML
+        navigator.clipboard.writeText(data)
+        .then(() => alert("Copied to clipboard!"))
+        .catch(err => console.error("Failed to copy: ", err));
+        }
+    </script>
+</body>
+
+</html>
