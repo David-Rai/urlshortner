@@ -1,7 +1,6 @@
 const fs = require("fs")
 const path = require("path")
 const shortid = require('shortid');
-const { CLIENT_RENEG_LIMIT } = require("tls");
 const dbPath = path.resolve("model", "data.json")
 
 //sent routes controllers
@@ -13,7 +12,7 @@ const sent = (req, res) => {
     }
 
     if(!data){
-        res.render("index",{short:"not found"})
+      return  res.render("index",{short:"not found"})
     }
     //reading the database data
     fs.readFile(dbPath, 'utf8', (err, data) => {

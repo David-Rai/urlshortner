@@ -11,9 +11,16 @@ app.set("views",path.join(__dirname,"views"))
 //built-in middleware in express js
 app.use(express.json())
 app.use(express.urlencoded({extended:true}))
+// app.use(express.static(path.join(__dirname,"model")))
+
+
 
 //use routes for better maintainance
 app.use(router)
+
+
+// serving the database datas
+
 
 //listening the server 
 const port = process.env.PORT || 1111
